@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.MatiereController"
+            stylesheets="@style.css">
+
+    <!-- Titre en haut -->
+    <top>
+        <VBox spacing="10" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="15" right="20" bottom="10" left="20"/>
+            </padding>
+            <children>
+                <Label text="Gestion des Matières" styleClass="title-label"/>
+            </children>
+        </VBox>
+    </top>
+
+    <!-- Centre = formulaire + boutons + tableau -->
+    <center>
+        <VBox spacing="20">
+            <padding>
+                <Insets top="0" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- Panneau bleu clair (formulaire) -->
+            <VBox styleClass="form-panel" spacing="12">
+                <padding>
+                    <Insets top="20" right="30" bottom="20" left="30"/>
+                </padding>
+
+                <GridPane hgap="20" vgap="12">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="120"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                    </columnConstraints>
+
+                    <Label text="ID :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtId" editable="false"
+                               GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Nom :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtNom"
+                               GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Coefficient :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtCoefficient"
+                               GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Volume horaire :" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtVolumeHoraire"
+                               GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                </GridPane>
+            </VBox>
+
+            <!-- Boutons verts -->
+            <HBox spacing="25" alignment="CENTER">
+                <children>
+                    <Button text="Ajouter"   onAction="#handleAjouter"   styleClass="action-button"/>
+                    <Button text="Modifier"  onAction="#handleModifier"  styleClass="action-button"/>
+                    <Button text="Supprimer" onAction="#handleSupprimer" styleClass="action-button"/>
+                    <Button text="Actualiser" onAction="#handleRafraichir" styleClass="action-button"/>
+                    <Button text="Vider"      onAction="#handleVider"      styleClass="action-button"/>
+                </children>
+            </HBox>
+
+            <!-- Tableau des données -->
+            <VBox spacing="5">
+                <children>
+                    <Label text="Tableau des données" styleClass="table-title"/>
+                    <TableView fx:id="tableMatiere" prefHeight="260">
+                        <columns>
+                            <TableColumn fx:id="colId"    text="ID"        prefWidth="60"/>
+                            <TableColumn fx:id="colNom"   text="Nom"       prefWidth="220"/>
+                            <TableColumn fx:id="colCoef"  text="Coefficient" prefWidth="120"/>
+                            <TableColumn fx:id="colVol"   text="Volume horaire" prefWidth="140"/>
+                        </columns>
+                    </TableView>
+                </children>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

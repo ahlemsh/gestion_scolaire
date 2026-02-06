@@ -1,0 +1,64 @@
+CREATE DATABASE IF NOT EXISTS gestion_scolarite_demo;
+USE gestion_scolarite_demo;
+
+DROP TABLE IF EXISTS seance;
+DROP TABLE IF EXISTS etudiant;
+DROP TABLE IF EXISTS matiere;
+DROP TABLE IF EXISTS enseignant;
+DROP TABLE IF EXISTS groupe;
+
+CREATE TABLE enseignant (
+  id INT(11) PRIMARY KEY AUTO_INCREMENT,
+  nom VARCHAR(80) NOT NULL,
+  prenom VARCHAR(80) NOT NULL,
+  specialite VARCHAR(120) DEFAULT NULL,
+  email VARCHAR(120) DEFAULT NULL,
+  telephone VARCHAR(20) DEFAULT NULL
+);
+
+CREATE TABLE groupe (
+  id INT(11) PRIMARY KEY AUTO_INCREMENT,
+  nom VARCHAR(100) NOT NULL,
+  effectif_max INT(11) DEFAULT NULL,
+  niveau VARCHAR(50) DEFAULT NULL
+);
+
+CREATE TABLE matiere (
+  id INT(11) PRIMARY KEY AUTO_INCREMENT,
+  nom VARCHAR(100) NOT NULL,
+  coefficient INT(11) DEFAULT NULL,
+  volume_horaire INT(11) DEFAULT NULL
+);
+
+CREATE TABLE etudiant (
+  id INT(11) PRIMARY KEY AUTO_INCREMENT,
+  nom VARCHAR(80) NOT NULL,
+  prenom VARCHAR(80) NOT NULL,
+  date_naissance DATE DEFAULT NULL,
+  email VARCHAR(120) DEFAULT NULL,
+  telephone VARCHAR(20) DEFAULT NULL,
+  id_groupe INT(11) DEFAULT NULL,
+  CONSTRAINT etudiant_ibfk_1
+    FOREIGN KEY (id_groupe) REFERENCES groupe(id)
+    ON DELETE SET NULL
+);
+
+CREATE TABLE seance (
+  id INT(11) PRIMARY KEY AUTO_INCREMENT,
+  id_groupe INT(11) NOT NULL,
+  id_matiere INT(11) NOT NULL,
+  id_enseignant INT(11) NOT NULL,
+  jour VARCHAR(20) DEFAULT NULL,
+  heure_debut TIME DEFAULT NULL,
+  heure_fin TIME DEFAULT NULL,
+  salle VARCHAR(50) DEFAULT NULL,
+  CONSTRAINT seance_ibfk_1
+    FOREIGN KEY (id_groupe) REFERENCES groupe(id)
+    ON DELETE CASCADE,
+  CONSTRAINT seance_ibfk_2
+    FOREIGN KEY (id_matiere) REFERENCES matiere(id)
+    ON DELETE CASCADE,
+  CONSTRAINT seance_ibfk_3
+    FOREIGN KEY (id_enseignant) REFERENCES enseignant(id)
+    ON DELETE CASCADE
+);

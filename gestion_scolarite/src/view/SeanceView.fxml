@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.SeanceController"
+            stylesheets="@style.css">
+
+    <top>
+        <VBox spacing="10" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="15" right="20" bottom="10" left="20"/>
+            </padding>
+            <children>
+                <Label text="Gestion des Séances" styleClass="title-label"/>
+            </children>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="20">
+            <padding>
+                <Insets top="0" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <VBox styleClass="form-panel" spacing="12">
+                <padding>
+                    <Insets top="20" right="30" bottom="20" left="30"/>
+                </padding>
+
+                <GridPane hgap="20" vgap="12">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="120"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                    </columnConstraints>
+
+                    <Label text="ID :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtId" editable="false"
+                               GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Groupe :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="cbGroupe" prefWidth="280"
+                              GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Matière :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="cbMatiere" prefWidth="280"
+                              GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Enseignant :" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="cbEnseignant" prefWidth="280"
+                              GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                    <Label text="Jour :" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="cbJour" prefWidth="280"
+                              GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                    <Label text="Heure début (HH:mm) :" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtHeureDebut"
+                               GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                    <Label text="Heure fin (HH:mm) :" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtHeureFin"
+                               GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                    <Label text="Salle (numéro):" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtSalle"
+                               GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+                </GridPane>
+            </VBox>
+
+            <HBox spacing="25" alignment="CENTER">
+                <children>
+                    <Button text="Ajouter"    onAction="#handleAjouter"   styleClass="action-button"/>
+                    <Button text="Modifier"   onAction="#handleModifier"  styleClass="action-button"/>
+                    <Button text="Supprimer"  onAction="#handleSupprimer" styleClass="action-button"/>
+                    <Button text="Actualiser" onAction="#handleRafraichir" styleClass="action-button"/>
+                    <Button text="Vider"      onAction="#handleVider"      styleClass="action-button"/>
+                </children>
+            </HBox>
+
+            <VBox spacing="5">
+                <children>
+                    <Label text="Tableau des séances" styleClass="table-title"/>
+                    <TableView fx:id="tableSeance" prefHeight="260">
+                        <columns>
+                            <TableColumn fx:id="colId"          text="ID"           prefWidth="50"/>
+                            <TableColumn fx:id="colGroupeId"    text="Groupe"       prefWidth="80"/>
+                            <TableColumn fx:id="colMatiereId"   text="Matière"      prefWidth="80"/>
+                            <TableColumn fx:id="colEnseignantId" text="Enseignant"   prefWidth="90"/>
+                            <TableColumn fx:id="colJour"        text="Jour"         prefWidth="80"/>
+                            <TableColumn fx:id="colHeureDebut"  text="Début"        prefWidth="70"/>
+                            <TableColumn fx:id="colHeureFin"    text="Fin"          prefWidth="70"/>
+                            <TableColumn fx:id="colSalle"       text="Salle"        prefWidth="80"/>
+                        </columns>
+                    </TableView>
+                </children>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

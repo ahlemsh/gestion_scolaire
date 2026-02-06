@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.MainController">
+
+    <!-- Titre en haut -->
+    <top>
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="10" left="20"/>
+            </padding>
+            <children>
+                <Label text="Application de Gestion Scolaire"
+                       style="-fx-font-size: 28; -fx-font-weight: bold;"/>
+                <Label text="Sélectionnez un module à gérer"
+                       style="-fx-font-size: 14; -fx-text-fill: #555;"/>
+            </children>
+        </VBox>
+    </top>
+
+    <!-- Boutons au centre -->
+    <center>
+        <!-- fillWidth="false" permet de ne pas étirer le GridPane sur toute la largeur -->
+        <VBox alignment="CENTER" spacing="25" fillWidth="false">
+            <children>
+                <GridPane hgap="25" vgap="15" alignment="CENTER">
+                    <children>
+                        <!-- Étudiants -->
+                        <Button fx:id="btnEtudiants"
+                                text="Gestion des Étudiants"
+                                onAction="#handleEtudiants"
+                                GridPane.rowIndex="0" GridPane.columnIndex="0"
+                                prefWidth="260" prefHeight="60"
+                                style="-fx-background-color:#3498db; -fx-text-fill:white; -fx-font-weight:bold; -fx-font-size:14; -fx-background-radius:10; -fx-cursor: hand;"/>
+
+                        <!-- Enseignants -->
+                        <Button fx:id="btnEnseignants"
+                                text="Gestion des Enseignants"
+                                onAction="#handleEnseignants"
+                                GridPane.rowIndex="0" GridPane.columnIndex="1"
+                                prefWidth="260" prefHeight="60"
+                                style="-fx-background-color:#e74c3c; -fx-text-fill:white; -fx-font-weight:bold; -fx-font-size:14; -fx-background-radius:10; -fx-cursor: hand;"/>
+
+                        <!-- Matières -->
+                        <Button fx:id="btnMatieres"
+                                text="Gestion des Matières"
+                                onAction="#handleMatieres"
+                                GridPane.rowIndex="1" GridPane.columnIndex="0"
+                                prefWidth="260" prefHeight="60"
+                                style="-fx-background-color:#27ae60; -fx-text-fill:white; -fx-font-weight:bold; -fx-font-size:14; -fx-background-radius:10; -fx-cursor: hand;"/>
+
+                        <!-- Groupes -->
+                        <Button fx:id="btnGroupes"
+                                text="Gestion des Groupes"
+                                onAction="#handleGroupes"
+                                GridPane.rowIndex="1" GridPane.columnIndex="1"
+                                prefWidth="260" prefHeight="60"
+                                style="-fx-background-color:#f39c12; -fx-text-fill:white; -fx-font-weight:bold; -fx-font-size:14; -fx-background-radius:10; -fx-cursor: hand;"/>
+
+                        <!-- Emplois du temps -->
+                        <Button fx:id="btnSeances"
+                                text="Gestion des Emplois du Temps"
+                                onAction="#handleSeances"
+                                GridPane.rowIndex="2" GridPane.columnIndex="0"
+                                GridPane.columnSpan="2"
+                                prefWidth="550" prefHeight="55"
+                                style="-fx-background-color:#8e44ad; -fx-text-fill:white; -fx-font-weight:bold; -fx-font-size:14; -fx-background-radius:10; -fx-cursor: hand;"/>
+                    </children>
+                </GridPane>
+
+                <!-- Bouton quitter centré -->
+                <Button text="Quitter"
+                        onAction="#handleQuitter"
+                        style="-fx-padding:6 20; -fx-background-radius:8; -fx-cursor: hand;"/>
+            </children>
+        </VBox>
+    </center>
+
+
+    <!-- Statistiques rapides en bas -->
+    <bottom>
+        <VBox spacing="5" style="-fx-padding:10 30 15 30;">
+            <Label text="Statistiques rapides"
+                   style="-fx-font-weight:bold; -fx-font-size:14;"/>
+
+            <GridPane hgap="40" vgap="5">
+                <children>
+                    <Label text="Nombre d'étudiants :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Label fx:id="lblNbEtudiants" text="0" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Nombre d'enseignants :" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                    <Label fx:id="lblNbEnseignants" text="0" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                    <Label text="Nombre de matières :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <Label fx:id="lblNbMatieres" text="0" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Nombre de groupes :" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                    <Label fx:id="lblNbGroupes" text="0" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                </children>
+            </GridPane>
+        </VBox>
+    </bottom>
+
+</BorderPane>

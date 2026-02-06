@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/gestion_scolarite/lib/javafx.base.jar!/" />
+      <root url="jar://$PROJECT_DIR$/gestion_scolarite/lib/javafx.web.jar!/" />
+      <root url="jar://$PROJECT_DIR$/gestion_scolarite/lib/javafx.media.jar!/" />
+      <root url="jar://$PROJECT_DIR$/gestion_scolarite/lib/javafx.fxml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/gestion_scolarite/lib/jdk.jsobject.jar!/" />
+      <root url="jar://$PROJECT_DIR$/gestion_scolarite/lib/javafx.graphics.jar!/" />
+      <root url="jar://$PROJECT_DIR$/gestion_scolarite/lib/javafx.swing.jar!/" />
+      <root url="jar://$PROJECT_DIR$/gestion_scolarite/lib/jfx.incubator.input.jar!/" />
+      <root url="jar://$PROJECT_DIR$/gestion_scolarite/lib/jfx.incubator.richtext.jar!/" />
+      <root url="jar://$PROJECT_DIR$/gestion_scolarite/lib/javafx-swt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/gestion_scolarite/lib/javafx.controls.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

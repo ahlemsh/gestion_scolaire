@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.EtudiantController"
+            stylesheets="@style.css">
+
+    <top>
+        <VBox spacing="10" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="15" right="20" bottom="10" left="20"/>
+            </padding>
+            <children>
+                <Label text="Gestion des Étudiants" styleClass="title-label"/>
+            </children>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="20">
+            <padding>
+                <Insets top="0" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <VBox styleClass="form-panel" spacing="12">
+                <padding>
+                    <Insets top="20" right="30" bottom="20" left="30"/>
+                </padding>
+
+                <GridPane hgap="20" vgap="12">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="120"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                    </columnConstraints>
+
+                    <Label text="ID :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtId" editable="false"
+                               GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Nom :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtNom"
+                               GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Prénom :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtPrenom"
+                               GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Date de naissance :" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <DatePicker fx:id="dpNaissance"
+                                GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                    <Label text="Email :" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtEmail"
+                               GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                    <Label text="Téléphone :" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtTelephone"
+                               GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                    <Label text="Groupe :" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="cbGroupe" prefWidth="280"
+                              GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                </GridPane>
+            </VBox>
+
+            <HBox spacing="25" alignment="CENTER">
+                <children>
+                    <Button text="Ajouter"    onAction="#handleAjouter"   styleClass="action-button"/>
+                    <Button text="Modifier"   onAction="#handleModifier"  styleClass="action-button"/>
+                    <Button text="Supprimer"  onAction="#handleSupprimer" styleClass="action-button"/>
+                    <Button text="Actualiser" onAction="#handleRafraichir" styleClass="action-button"/>
+                    <Button text="Vider"      onAction="#handleVider"      styleClass="action-button"/>
+                </children>
+            </HBox>
+
+            <VBox spacing="5">
+                <children>
+                    <Label text="Tableau des étudiants" styleClass="table-title"/>
+                    <TableView fx:id="tableEtudiant" prefHeight="260">
+                        <columns>
+                            <TableColumn fx:id="colId"        text="ID"         prefWidth="50"/>
+                            <TableColumn fx:id="colNom"       text="Nom"        prefWidth="120"/>
+                            <TableColumn fx:id="colPrenom"    text="Prénom"     prefWidth="120"/>
+                            <TableColumn fx:id="colNaissance" text="Naissance"  prefWidth="100"/>
+                            <TableColumn fx:id="colEmail"     text="Email"      prefWidth="150"/>
+                            <TableColumn fx:id="colTel"       text="Téléphone"  prefWidth="100"/>
+                            <TableColumn fx:id="colGroupe"  text="Groupe"  prefWidth="80"/>
+                        </columns>
+                    </TableView>
+                </children>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>
